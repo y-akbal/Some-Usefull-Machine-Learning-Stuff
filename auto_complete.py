@@ -99,7 +99,7 @@ def return_completion(string):
             word = tuple_[1]
     return word
 
-return_completion("jesus")
+
 
 
         

@@ -11,7 +11,7 @@ returns distance between two words
 """
 def distance(s, g, del_cost = 1, insert_cost = 1, replace_cost = 2, return_distance_matrix = False):
     """
-returns distance between two words
+returns distance between two words by means of linear programming
 """
     s = f"\t" + s
     g = f"\t" + g

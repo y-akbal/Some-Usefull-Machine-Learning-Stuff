@@ -26,7 +26,7 @@ def f(L_probs, L_tokens, next_probs, B):
     """
     Probs = L_probs*next_probs
     f_Probs = Probs.reshape(-1,)
-    vocab_siz = len(next_probs[0,:])
+    vocab_size = len(next_probs[0,:])
     
     sort = np.argsort(f_Probs)[-B:]
     

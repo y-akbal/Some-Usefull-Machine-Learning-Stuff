@@ -81,7 +81,7 @@ class positional_encoding(Layer):
 
 
  
-### there is comes the dope!
+### there it comes the dope!
 class model(Model):
     def __init__(self, n_heads, key_dim, dropout_rate, n_units, n_layers):
         super().__init__();

@@ -5,7 +5,7 @@ Created on Thu Jan 27 11:13:47 2022
 
 @author: sahmaran
 """
-
+### The model below achieves %90 percent accuracy on the mnist + fashion_mnist dataset!
 
 import numpy as np
 import tensorflow as tf
@@ -32,7 +32,7 @@ from tensorflow.keras.metrics import Accuracy, CategoricalCrossentropy
 from tensorflow.keras.losses import SparseCategoricalCrossentropy, sparse_categorical_crossentropy
 from tensorflow.keras.activations import relu, softmax
 
-K = tf.random.normal((150,1))
+
 
 class Lay_(Layer): ### this dude takes linear combination (in a trainable way) rows of a given hidden states and therefore squaes the information
     def __init__(self, trainable = True):

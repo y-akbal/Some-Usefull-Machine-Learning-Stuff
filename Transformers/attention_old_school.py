@@ -5,7 +5,7 @@ Created on Thu Jan 27 11:13:47 2022
 
 @author: sahmaran
 """
-### The model below achieves %90 percent accuracy on the mnist + fashion_mnist dataset!
+### The model below achieves %95 percent accuracy on the mnist + fashion_mnist dataset!
 
 import numpy as np
 import tensorflow as tf

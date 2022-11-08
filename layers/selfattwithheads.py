@@ -5,8 +5,11 @@ class self_attention_heads(Layer):
         self.causal = causal 
         self.heads = heads
         self.dropout = Dropout(dropout)
+        self.conv2d = Conv2D(1, kernel_size = 1, strides = 1, use_bias= True, kernel_initializer= tf.keras.initializers.Constant(
+    value=1/self.heads))
+        
     def build(self, input_shape, **kwargs):
-        super().__init__(**kwargs)
+       
         input_shape = input_shape[0]
         shape = self.heads, input_shape[-2], input_shape[-2]
         initializer = tf.keras.initializers.Orthogonal() #### we in particular ortogonal initialization, in the case that it is needed it will train it!
@@ -26,7 +29,7 @@ class self_attention_heads(Layer):
             
            
             
-        inputs_ = [0 for i in inputs]
+        inputs_ = [0 for i in range(len(inputs))]
         
         
         inputs_[0] = tf.expand_dims(inputs[0], axis = -3)
@@ -36,12 +39,15 @@ class self_attention_heads(Layer):
         sim2 = self.kernel @ inputs_[1]
         
                 
-        att_scores = tf.matmul(sim1, sim2, transpose_a = True)
+        att_scores = tf.matmul(sim1, sim2, transpose_b = True)
         
         if self.causal:
             att_scores += self.upper_m
         
         softmaxed = tf.nn.softmax(att_scores, axis = -2)
-        similarity_heads = softmaxed @ inputs_[0]
         
-        return tf.transpose(similarity_heads, [0, 2, 3, 1])
+        similarity_heads = softmaxed @ inputs_[1]
+        
+        transposed = tf.transpose(similarity_heads, [0, 2, 3, 1])
+        return tf.squeeze(self.conv2d(transposed), -1)
+        

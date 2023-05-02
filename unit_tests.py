@@ -126,7 +126,7 @@ def bubble_sort(list__, return_args = False):
 
 
 
-class uncle_sam__:
+class uncle__sam:
     def __init__(self):
         self.__q__ = np.random.uniform(0.3, 0.7)
         self.__p__ = np.random.uniform(0.3, 0.7)

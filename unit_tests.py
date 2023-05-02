@@ -177,7 +177,7 @@ def distancebetween_sams(s, g, del_cost = 1, insert_cost = 1, replace_cost = 2, 
 
 
 class unit_tests:
-    def __init__(self, uncle_sam = uncle_sam):
+    def __init__(self, uncle_sam):
         self.f = [lambda x : x**2, lambda x: np.sin(x**2), 
                   lambda x: np.cos(x**2), lambda x: x*np.sin(x)]
         self.pts = [1, np.pi/2, np.pi/2, np.pi]

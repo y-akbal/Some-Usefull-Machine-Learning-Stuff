@@ -8,7 +8,7 @@ using MLDatasets
 using Flux: onehotbatch, onecold, DataLoader, Optimiser
 using BSON:@save,@load
 using ProgressMeter
-using OneHotArrays
+using OneHotnumbers
 using Parameters
 
 

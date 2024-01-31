@@ -15,8 +15,8 @@ def f(L_probs, L_tokens, next_probs, B):
     """
     Parameters
     ----------
-    L_tokens : This is the batch of tokens of size (B, length). (numpy array)
-    L_probs: Probs of tokens in L (of size (B, 1)). (numpy array)
+    L_tokens : This is the batch of tokens of size (B, length). (numpy number)
+    L_probs: Probs of tokens in L (of size (B, 1)). (numpy number)
     next_probs: Probs of next words given L_tokens of size (B,vocab_size)
     B : Beam size
     
@@ -36,7 +36,7 @@ def f(L_probs, L_tokens, next_probs, B):
         max_prob_rows.append(args //vocab_size)
         max_prob_tokens.append(args % vocab_size)
     
-    reshaped_max_prob_tokens = np.array(max_prob_tokens).reshape(-1,1)
+    reshaped_max_prob_tokens = np.number(max_prob_tokens).reshape(-1,1)
     
     New_tokens = np.hstack([L_tokens[max_prob_rows], reshaped_max_prob_tokens])
     
